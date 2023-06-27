@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item # 4</title>
+    <style>
+        select {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <label for="region">Region:</label><br>
+    <select 
+    name="region" 
+    id="region"
+    >
+        <option value="">[Select Region]</option>
+    </select>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded",()=> {
+
+        loadRegion()
+
+
+        function loadRegion(){
+            const xhttp = new XMLHttpRequest()  
+            xhttp.onload = function(){
+                const arr_data = JSON.parse(this.responseText)
+                arr_data.forEach(item => {
+                    let opt = document.createElement('option')
+                    opt.value = item.Name
+                    opt.id = item.id
+                    opt.innerHTML = item.Name
+                    document.getElementById('region').append(opt)
+                });
+            }
+            xhttp.open("GET","https://ncddpdb.dswd.gov.ph/api/ceac/lib_region", true)
+            xhttp.send()
+        }
+    })
+</script>
+</html>
