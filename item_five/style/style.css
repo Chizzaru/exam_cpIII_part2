@@ -1,0 +1,15 @@
+.btn.editbtn {
+    background-color: #1D3469 !important;
+    color: white !important;
+    font-size: 11px;
+    padding: 2px;
+    margin: 2px;
+}
+
+.btn.delbtn {
+    background-color: #ADAEB1 !important;
+    color: white !important;
+    font-size: 11px;
+    padding: 2px;
+    margin: 2px;
+}
